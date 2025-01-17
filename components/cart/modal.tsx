@@ -26,6 +26,7 @@ export default function CartModal() {
   const quantityRef = useRef(cart?.totalQuantity);
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
+  const envio = "2000";
 
   useEffect(() => {
     if (!cart) {
@@ -60,7 +61,6 @@ export default function CartModal() {
       </button>
     );
   }
-  
 
   return (
     <>
@@ -190,23 +190,11 @@ export default function CartModal() {
                       })}
                   </ul>
                   <div className="py-4 text-sm text-neutral-500 dark:text-neutral-400">
-                    <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 dark:border-neutral-700">
-                      <p>Impuesto</p>
-                      <Price
-                        className="text-right text-base text-black dark:text-white"
-                        amount={cart.cost.totalTaxAmount.amount}
-                        currencyCode={cart.cost.totalTaxAmount.currencyCode}
-                      />
-                    </div>
-                    <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1 dark:border-neutral-700">
-                      <p>Envio</p>
-                      <p className="text-right">Calculado al finalizar la compra</p>
-                    </div>
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1 dark:border-neutral-700">
                       <p>Total</p>
                       <Price
                         className="text-right text-base text-black dark:text-white"
-                        amount={cart.cost.totalAmount.amount}
+                        amount={cart.cost.subtotalAmount.amount}
                         currencyCode={cart.cost.totalAmount.currencyCode}
                       />
                     </div>

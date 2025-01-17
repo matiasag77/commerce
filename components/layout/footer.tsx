@@ -58,7 +58,7 @@ export default async function Footer() {
           </p>
           <p className="md:ml-auto">
             <a href="https://www.linkedin.com/in/matiasag77" className="text-black dark:text-white">
-              Created by 🍺 Matías Aguirre 🍺
+              linkedin
             </a>
           </p>
         </div>

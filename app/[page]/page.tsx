@@ -27,19 +27,25 @@ export default async function Page(props: { params: Promise<{ page: string }> })
   const params = await props.params;
   const page = await getPage(params.page);
 
+  if (params.page == 'checkout') {
+    return (
+      <div>
+        <h1>Checkout</h1>
+        <p>Pedir auth</p>
+        <p>Mostrar datos del carrito</p>
+        <p>Agregar envio</p>
+        <p>Mostrar formulario de pago</p>
+
+      </div>
+    );
+  }
+  
   if (!page) return notFound();
 
   return (
     <>
       <h1 className="mb-8 text-5xl font-bold">{page.title}</h1>
       <Prose className="mb-8" html={page.body} />
-      <p className="text-sm italic">
-        {`${new Intl.DateTimeFormat(undefined, {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        }).format(new Date(page.updatedAt))}.`}
-      </p>
     </>
   );
 }
